@@ -8,21 +8,27 @@
       <th>Website</th>
     </tbody>
     <tbody v-for="user of  allUsers" :key="user.id">
-        <tr class="id">
-        <td >{{user.id}}</td>
+      <tr class="id">
+        <td>{{user.id}}</td>
       </tr>
+
       <tr>
         <td>{{user.name}}</td>
       </tr>
+
       <tr>
         <td>{{user.username}}</td>
       </tr>
+
       <tr>
         <td>{{user.email}}</td>
       </tr>
+
       <tr>
         <td>{{user.website}}</td>
       </tr>
+      
+      <button>x</button>
     </tbody>
   </table>
 </template>
@@ -45,28 +51,28 @@ export default {
 <style scoped>
 table {
   width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 tbody {
   width: 72%;
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid;
 }
 tr {
- width: 34%;
-border: 1px solid;
+  width: 34%;
+  border: 1px solid;
 }
-td{
-    width: 100%;
+td {
+  width: 100%;
 }
-.id{
-    width: 5%;
+.id {
+  width: 5%;
 }
-.titelID{
-    width: 2px;
+.titelID {
+  width: 2px;
 }
 </style>

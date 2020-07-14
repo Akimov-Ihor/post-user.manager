@@ -1,7 +1,7 @@
 <template>
   <div id="app">
    <CreateNewPost/>
-   <!-- <AllPost/> -->
+   <AllPost/>
    <AllUsers/>
   </div>
 </template>
@@ -9,11 +9,11 @@
 <script>
 import AllUsers from './components/AllUsers'
 import CreateNewPost from './components/CreateNewPost'
-// import AllPost from './components/AllPost';
+import AllPost from './components/AllPost';
 export default {
   name: 'App',
   components: {
-    // AllPost,
+    AllPost,
     CreateNewPost,
     AllUsers
   }
