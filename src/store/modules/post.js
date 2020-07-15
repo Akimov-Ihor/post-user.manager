@@ -1,8 +1,8 @@
-import axios from 'axios'
+// import axios from 'axios'
 export default {
     actions: {
         async getPost(ctx) {
-            const respons = await fetch('https://jsonplaceholder.typicode.com/posts'
+            const respons = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=12'
             );
             const posts = await respons.json()
 
@@ -15,10 +15,10 @@ export default {
             const users = await rsp.json()
             ctx.commit('updateUsers', users)
         },
-       async getPostBody(ctx){
-        let {post} = await axios.get('https://jsonplaceholder.typicode.com/posts?id=' + this.$route.params.id )
-        ctx.commit('getPostBody',post)
-       }
+    //    async getPostBody(ctx){
+    //     let {post} = await axios.get('https://jsonplaceholder.typicode.com/posts?id=' + this.$route.params.id )
+    //     ctx.commit('getPostBody',post)
+    //    }
     },
     mutations: {
         updatePost(state, posts) {
@@ -31,7 +31,7 @@ export default {
         },
 
         createNewPost(state, newPost) {
-            state.posts.unshift(newPost)
+            state.posts.push(newPost)
         },
         showNextPosts(state) {
             state.page++
@@ -50,7 +50,6 @@ export default {
         perPages: 10,
         users: [],
         post:[]
-
     },
     getters: {
 
@@ -68,10 +67,11 @@ export default {
             return Math.ceil(numberOfPosts.length / state.perPages);
         },
         paginatedData(state) {
-            const start = state.page * state.perPages,
-                end = start + state.perPages;
-            return state.posts.slice(start, end);
-
+            const start = state.page * state.perPages;
+            const end = start + state.perPages;
+            const qqq = [...state.posts.reverse()];
+            
+            return qqq.slice(start, end);
         },
         getPostBodyInfo(state){
             return state.post

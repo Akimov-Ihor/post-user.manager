@@ -1,4 +1,5 @@
 <template>
+<div>
   <table>
     <tbody>
       <th class="titelID">ID</th>
@@ -7,7 +8,7 @@
       <th>Email</th>
       <th>Website</th>
     </tbody>
-    <tbody v-for="user of  allUsers" :key="user.id">
+    <tbody v-for="user of allUsers" :key="user.id">
       <tr class="id">
         <td>{{user.id}}</td>
       </tr>
@@ -28,21 +29,42 @@
         <td>{{user.website}}</td>
       </tr>
       
-      <div class="info"></div>
+      <div @click="toggleModal" class="info"></div>
     </tbody>
   </table>
+    <div v-if='isModalOpen'>
+      <modal @close="toggleModal" company="this.user.company.name"/>
+    </div>
+  </div>
 </template>
 
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-export default {
-  methods: mapActions(["getAllUsers"]),
+import modal from '../components/modal'
 
-  computed: mapGetters(["allUsers"]),
-  async mounted() {
+export default {
+  components: {
+    modal
+  },
+  created() {
     this.getAllUsers();
-  }
+  },
+  data() {
+    return {
+      isModalOpen: false
+      
+    }
+  },
+  computed: mapGetters(["allUsers"]),
+  methods: {
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+      console.log(this.user.id)
+      
+    },
+    ...mapActions(["getAllUsers"]),
+  } 
 };
 </script>
 

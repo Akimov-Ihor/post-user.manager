@@ -16,21 +16,25 @@
 import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   name: "AllPost",
-
   methods: {
     ...mapMutations(["showNextPosts", "showPreviousPosts"]),
     ...mapActions(["getPost"]),
     submit() {}
   },
 
-  computed: mapGetters([
+  computed: {
+    // test() {
+    //   // console.log(this.$store.state.allPosts.reverse())
+    // },
+    ...mapGetters([
     "allPosts",
     "getNumberOfPage",
     "paginatedData",
     "getPageCount"
-  ]),
-  async mounted() {
-    this.getPost();
+  ])
+  },
+  created() {
+    if (this.allPosts && !this.allPosts.length) this.getPost();
   }
 };
 </script>

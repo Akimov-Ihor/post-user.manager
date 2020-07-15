@@ -32,7 +32,7 @@ export default {
       this.createNewPost({
         title: this.title,
         body: this.body,
-        id: new Date()
+        id: new Date().getTime()
       });
       (this.title = ""), (this.body = "");
       // this.$router.push("/posts");
