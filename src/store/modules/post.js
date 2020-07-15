@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 export default {
     actions: {
         async getPost(ctx) {
@@ -15,10 +15,13 @@ export default {
             const users = await rsp.json()
             ctx.commit('updateUsers', users)
         },
-    //    async getPostBody(ctx){
-    //     let {post} = await axios.get('https://jsonplaceholder.typicode.com/posts?id=' + this.$route.params.id )
-    //     ctx.commit('getPostBody',post)
-    //    }
+       async getAllComments(ctx){
+        let rspComments=await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=100' 
+        );
+        let comments=await rspComments.data
+        console.log(comments)
+        ctx.commit('updateComments',comments)
+       }
     },
     mutations: {
         updatePost(state, posts) {
@@ -29,7 +32,9 @@ export default {
 
             state.users = users
         },
-
+        updateComments(state,comments){
+            state.comments=comments
+        },
         createNewPost(state, newPost) {
             state.posts.push(newPost)
         },
@@ -40,16 +45,14 @@ export default {
         showPreviousPosts(state) {
             state.page--
         },
-        PostBody(state,post){
-            state.post=post
-        }
+    
     },
     state: {
         posts: [],
         page: 0,
         perPages: 10,
         users: [],
-        post:[]
+        comments:[]
     },
     getters: {
 
@@ -72,10 +75,8 @@ export default {
             const qqq = [...state.posts.reverse()];
             
             return qqq.slice(start, end);
-        },
-        getPostBodyInfo(state){
-            return state.post
         }
+
     },
 
 }

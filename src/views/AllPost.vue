@@ -18,7 +18,7 @@ export default {
   name: "AllPost",
   methods: {
     ...mapMutations(["showNextPosts", "showPreviousPosts"]),
-    ...mapActions(["getPost"]),
+    ...mapActions(["getPost","getAllComments"]),
     submit() {}
   },
 
@@ -34,7 +34,9 @@ export default {
   ])
   },
   created() {
+     this.getAllComments()
     if (this.allPosts && !this.allPosts.length) this.getPost();
+  
   }
 };
 </script>

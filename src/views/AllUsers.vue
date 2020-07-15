@@ -29,11 +29,11 @@
         <td>{{user.website}}</td>
       </tr>
       
-      <div @click="toggleModal" class="info"></div>
+      <div @click="toggleModal(user.company)" class="info"></div>
     </tbody>
   </table>
     <div v-if='isModalOpen'>
-      <modal @close="toggleModal" company="this.user.company.name"/>
+      <modal @close="toggleModal" v-bind:company="this.company"/>
     </div>
   </div>
 </template>
@@ -52,16 +52,20 @@ export default {
   },
   data() {
     return {
-      isModalOpen: false
+      isModalOpen: false,
+      company:[]
       
     }
   },
   computed: mapGetters(["allUsers"]),
   methods: {
-    toggleModal() {
+    toggleModal:function(x) {
       this.isModalOpen = !this.isModalOpen;
-      console.log(this.user.id)
+      this.company=x
+      console.log(this.company)
       
+    
+     
     },
     ...mapActions(["getAllUsers"]),
   } 
