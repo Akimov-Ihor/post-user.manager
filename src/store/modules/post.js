@@ -1,3 +1,4 @@
+import axios from 'axios'
 export default {
     actions: {
         async getPost(ctx) {
@@ -8,13 +9,16 @@ export default {
             ctx.commit('updatePost', posts)
 
         },
-        async getAllUsers(ctx){
-            const rsp =await fetch('https://jsonplaceholder.typicode.com/users'
+        async getAllUsers(ctx) {
+            const rsp = await fetch('https://jsonplaceholder.typicode.com/users'
             );
-            const users=await rsp.json()
-            ctx.commit('updateUsers',users)
-        }
-
+            const users = await rsp.json()
+            ctx.commit('updateUsers', users)
+        },
+       async getPostBody(ctx){
+        let {post} = await axios.get('https://jsonplaceholder.typicode.com/posts?id=' + this.$route.params.id )
+        ctx.commit('getPostBody',post)
+       }
     },
     mutations: {
         updatePost(state, posts) {
@@ -25,49 +29,52 @@ export default {
 
             state.users = users
         },
-         
-        createNewPost(state,newPost){
+
+        createNewPost(state, newPost) {
             state.posts.unshift(newPost)
         },
-        showNextPosts(state){
-           state.page++
+        showNextPosts(state) {
+            state.page++
         },
-        
-        showPreviousPosts(state){
-        //     let numberOfPosts= state.posts;
-        //    let pageCount=Math.ceil(numberOfPosts.length/state.perPages);
-        //    if (state.page>pageCount){
-               state.page--
+
+        showPreviousPosts(state) {
+            state.page--
+        },
+        PostBody(state,post){
+            state.post=post
         }
     },
     state: {
-
         posts: [],
-        page:0,
-        perPages:10,
-        users:[]
+        page: 0,
+        perPages: 10,
+        users: [],
+        post:[]
 
     },
     getters: {
-     
+
         allPosts(state) {
             return state.posts
         },
-        allUsers(state){
+        allUsers(state) {
             return state.users
         },
-        getNumberOfPage (state){
-        return state.page
+        getNumberOfPage(state) {
+            return state.page
         },
-        getPageCount(state){
-            let numberOfPosts= state.posts;
-            return Math.ceil(numberOfPosts.length/state.perPages);
+        getPageCount(state) {
+            let numberOfPosts = state.posts;
+            return Math.ceil(numberOfPosts.length / state.perPages);
         },
-        paginatedData(state){
-                const start = state.page * state.perPages,
-                      end = start + state.perPages;
-                return state.posts.slice(start, end);
-         
+        paginatedData(state) {
+            const start = state.page * state.perPages,
+                end = start + state.perPages;
+            return state.posts.slice(start, end);
+
+        },
+        getPostBodyInfo(state){
+            return state.post
         }
     },
 

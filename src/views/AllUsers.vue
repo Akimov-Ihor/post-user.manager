@@ -28,7 +28,7 @@
         <td>{{user.website}}</td>
       </tr>
       
-      <button>x</button>
+      <div class="info"></div>
     </tbody>
   </table>
 </template>
@@ -55,12 +55,15 @@ table {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top:2%
 }
 tbody {
   width: 72%;
   display: flex;
   justify-content: space-around;
   border: 1px solid;
+  height: 3vw;
+  text-align:center;
 }
 tr {
   width: 34%;
@@ -73,6 +76,19 @@ td {
   width: 5%;
 }
 .titelID {
-  width: 2px;
+  width: 5%;
 }
+th{
+  width: 34%;
+  
+}
+.info{
+ width: 3vw;
+    height: 4vh;
+    background: url(../assets/icons/info.svg) no-repeat center;
+    background-size: contain;
+    opacity: 0.6;
+    outline: none;
+}
+
 </style>
