@@ -28,15 +28,15 @@ export default {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.88);
+  background: #020202ab;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container > div {
-  height: 22%;
-  width: 35%;
-  background: rgba(0, 0, 0, 0.5);
-  color: red;
+      height: 22%;
+    width: 35%;
+    background: #020202ab;
+    color: #e8f0fe
 }
 </style>

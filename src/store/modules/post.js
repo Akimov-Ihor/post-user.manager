@@ -2,26 +2,27 @@ import axios from 'axios'
 export default {
     actions: {
         async getPost(ctx) {
-            const respons = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=12'
+            const respons = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=12'
             );
-            const posts = await respons.json()
+            const posts = await respons.data
 
             ctx.commit('updatePost', posts)
 
         },
         async getAllUsers(ctx) {
-            const rsp = await fetch('https://jsonplaceholder.typicode.com/users'
+            const rsp = await axios.get('https://jsonplaceholder.typicode.com/users'
             );
-            const users = await rsp.json()
+            const users = await rsp.data
+
             ctx.commit('updateUsers', users)
         },
-       async getAllComments(ctx){
-        let rspComments=await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=100' 
-        );
-        let comments=await rspComments.data
-        console.log(comments)
-        ctx.commit('updateComments',comments)
-       }
+        async getAllComments(ctx) {
+            let rspComments = await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=100'
+            );
+            let comments = await rspComments.data
+
+            ctx.commit('updateComments', comments)
+        }
     },
     mutations: {
         updatePost(state, posts) {
@@ -32,11 +33,11 @@ export default {
 
             state.users = users
         },
-        updateComments(state,comments){
-            state.comments=comments
+        updateComments(state, comments) {
+            state.comments = comments
         },
         createNewPost(state, newPost) {
-            state.posts.push(newPost)
+            state.posts.unshift(newPost)
         },
         showNextPosts(state) {
             state.page++
@@ -45,14 +46,14 @@ export default {
         showPreviousPosts(state) {
             state.page--
         },
-    
+
     },
     state: {
         posts: [],
         page: 0,
         perPages: 10,
         users: [],
-        comments:[]
+        comments: []
     },
     getters: {
 
@@ -72,9 +73,8 @@ export default {
         paginatedData(state) {
             const start = state.page * state.perPages;
             const end = start + state.perPages;
-            const qqq = [...state.posts.reverse()];
-            
-            return qqq.slice(start, end);
+
+            return state.posts.slice(start, end);
         }
 
     },

@@ -20,7 +20,7 @@
 .navbarWrapper {
   width: 100%;
   height: 2vh;
-  background: black;
+  background:#0801010a;
   display: flex;
   flex-direction: row-reverse;
 }
