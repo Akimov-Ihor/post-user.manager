@@ -1,24 +1,5 @@
-# post_manager
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1) Сделать страницу отображения всех постов (100 шт) + добавить пагинацию с отображением 10 постов за раз
+2) По клику на пост - открывать страницу с отображением этого поста + подтянуть комментраии для него
+3) Добавить страницу создания нового поста 
+4) Добавить страницу с таблицей всех пользователей  (в таблице отобразить id. name. email, website) + добавить кнопку ИНФО напротив каждого пользователя
+5) После нажатия на ИНФО должно открыться модальное окно с информацией о компании пользователя
