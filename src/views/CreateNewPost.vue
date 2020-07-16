@@ -12,7 +12,7 @@
           <input type="text" name="body" v-model="body" />
         </div>
         <div class="formButton">
-          <button :disabled="title && body =='' " class="myButton" type="submit">Create Post</button>
+          <button :disabled="title && body =='' " class="crtButton" type="submit">Create Post</button>
         </div>
       </form>
     </div>
@@ -48,7 +48,7 @@ export default {
 <style scoped>
 .formWrapper {
   width: 100%;
-  height: 75%;
+  height: 55%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@ form {
   width: 80%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
   /* justify-content: space-evenly; */
 }
 .formTitle > input {
@@ -95,10 +95,10 @@ form {
 .formButton {
   margin-top: 1%;
 }
-.myButton {
-  box-shadow: inset 0px 0px 15px 3px #23395e;
-  background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
-  background-color: #2e466e;
+.crtButton {
+  box-shadow: inset 0px 0px 15px 3px #181a1d;
+  background: linear-gradient(to bottom, #000204 5%, #000000 100%);
+  background-color: black;
   border-radius: 17px;
   border: 1px solid #1f2f47;
   display: inline-block;
@@ -110,13 +110,41 @@ form {
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
 }
-.myButton:hover {
+.crtButton:hover {
   background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
   background-color: #415989;
 }
-.myButton:active {
+.crtButton:active {
   position: relative;
   top: 1px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .formWrapperCenter {
+    width: 40%;
+    height: 57%;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .formWrapperCenter {
+    width: 55%;
+    height: 68%;
+  }
+}
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .formWrapperCenter {
+    width: 57%;
+    height: 57%;
+  }
+}
+/* Iphone 5 */
+@media (max-width: 320px) {
+  .formWrapperCenter {
+    width: 57%;
+    height: 57%;
+  }
 }
 </style>>
   

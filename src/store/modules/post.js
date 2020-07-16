@@ -2,7 +2,7 @@ import axios from 'axios'
 export default {
     actions: {
         async getPost(ctx) {
-            const respons = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=12'
+            const respons = await axios.get('https://jsonplaceholder.typicode.com/posts'
             );
             const posts = await respons.data
 

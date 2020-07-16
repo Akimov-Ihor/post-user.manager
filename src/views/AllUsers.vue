@@ -113,7 +113,80 @@ th {
   opacity: 0.6;
   outline: none;
 }
-.info:hover{
+.info:hover {
   opacity: 1;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  table {
+    height: 65vh;
+  }
+  tbody {
+    width: 90%;
+    height: 100%;
+  }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  table {
+    height: 65vh;
+  }
+  tbody {
+    width: 90%;
+    height: 100%;
+  }
+  tr {
+    width: 25%;
+    border: 1px solid;
+    font-size: 13px;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  table {
+    height: 65vh;
+  }
+  tbody {
+    width: 90%;
+    height: 100%;
+  }
+  tr {
+    width: 25%;
+    border: 1px solid;
+    font-size: 10px;
+  }
+}
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  table {
+    height: 65vh;
+  }
+  tbody {
+    width: 90%;
+    height: 100%;
+  }
+  tr {
+    width: 24%;
+    border: 1px solid;
+    font-size: 8px;
+    font-weight: bold;
+  }
+}
+/* Iphone 5 */
+@media (max-width: 320px) {
+  table {
+    height: 65vh;
+  }
+  tbody {
+    width: 90%;
+    height: 100%;
+  }
+  tr {
+    width: 24%;
+    border: 1px solid;
+    font-size: 6px;
+    font-weight: bold;
+  }
+}
+@media (max-height: 480px) {
 }
 </style>

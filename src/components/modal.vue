@@ -31,12 +31,49 @@ export default {
   background: #020202ab;
   display: flex;
   justify-content: center;
-  align-items: center;
+
 }
 .container > div {
-      height: 22%;
+  margin-top: 20%;
+      height: 15%;
     width: 35%;
     background: #020202ab;
     color: #e8f0fe
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container > div{
+    font-size: 15px;
+  }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  
+  .container > div{
+    height: 20%;
+    font-size: 12px;
+  }
+}
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .container > div{
+    height: 20%;
+    font-size: 100%;
+  } 
+}
+/* Iphone 5 */
+@media (max-width: 320px) {
+  .container > div{
+  height: 20%;
+  font-size: 100%;
+  }
+
+  
 }
 </style>

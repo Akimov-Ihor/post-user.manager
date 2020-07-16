@@ -68,7 +68,7 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-.commentsWrapperCenter{
+.commentsWrapperCenter {
   width: 60%;
   color: black;
   background: #0801010a;
@@ -77,10 +77,88 @@ h2 {
   display: flex;
   width: 100%;
 }
-.commentsAuthor{
+.commentsAuthor {
   width: 40%;
 }
-.commentsAuthorMessage{
+.commentsAuthorMessage {
   width: 60%;
+}
+
+@media (min-width: 2000px) {
+  .PostWrapper > h2 {
+    font-size: 7rem;
+  }
+  .postBody {
+    font-size: 4rem;
+  }
+  .commentsWrapperCenter {
+    width: 78%;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1400px) {
+  .PostWrapper > h2 {
+    font-size: 3rem;
+  }
+  .postBody {
+    font-size: 2rem;
+  }
+  .commentsWrapperCenter {
+    width: 78%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .PostWrapper > h2 {
+    font-size: 3rem;
+  }
+  .postBody {
+    font-size: 2rem;
+  }
+  .commentsWrapperCenter {
+    width: 78%;
+    font-size: 1rem;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .commentsWrapperCenter {
+    width: 95%;
+    font-size: 1rem;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .PostWrapper > h2 {
+    font-size: 1rem;
+    margin-top: 7%;
+  }
+  .PostWrapper {
+    height: 34%;
+    font-size: 1rem;
+  }
+
+  .commentsWrapperCenter {
+    width: 93%;
+    font-size: 15px;
+  }
+}
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+  .PostWrapper > h2 {
+    font-size: 1rem;
+    margin-top: 7%;
+  }
+  .PostWrapper {
+    height: 17%;
+    font-size: 1rem;
+  }
+
+  .commentsWrapperCenter {
+    width: 93%;
+    font-size: 15px;
+  }
 }
 </style>
